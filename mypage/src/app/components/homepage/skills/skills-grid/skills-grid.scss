@@ -1,0 +1,33 @@
+@use 'Pcolors' as *;
+@use 'Pbreakpoints' as *;
+
+.skills {
+    &-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+        gap: 14px 10px;
+
+        @media (max-width: $phone) {
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+            gap: 10px 8px;
+        }
+    }
+
+    &-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        h2 {
+            font-size: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: $accent-light;
+
+            @media (max-width: $phone) {
+                font-size: 12px;
+            }
+        }
+    }
+}

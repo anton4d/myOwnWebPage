@@ -1,0 +1,93 @@
+
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./Fonts/Cinzel/static/Cinzel-Regular.ttf) ;
+  } 
+
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./Fonts/Cinzel/static/Cinzel-Medium.ttf) ;
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(./Fonts/Cinzel/static/Cinzel-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./Fonts/Cinzel/static/Cinzel-Bold.ttf);
+}
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(./Fonts/Cinzel/static/Cinzel-ExtraBold.ttf);
+}
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(./Fonts/Cinzel/static/Cinzel-Black.ttf);
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./Fonts/Crimson_Text/CrimsonText-Italic.ttf);
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/Fonts/Crimson_Text/CrimsonText-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/Fonts/Crimson_Text/CrimsonText-SemiBoldItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(/Fonts/Crimson_Text/CrimsonText-SemiBold.ttf) ;
+}
+@font-face {
+  font-family: 'Crimson Text';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/Fonts/Crimson_Text/CrimsonText-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  font-style: normal;
+  font-weight: 00;
+  font-display: swap;
+  src: url(/Fonts/Crimson_Text/CrimsonText-Bold.ttf) ;
+}

@@ -1,0 +1,131 @@
+@use 'Pcolors' as *;
+@use 'Pbreakpoints' as *;
+
+
+
+.repo-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 0;
+
+  p { margin: 0; }
+}
+
+
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+  text-align: left;
+
+  @media (max-width: $tablet) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: $phone) { grid-template-columns: 1fr; }
+}
+
+
+.repo-card {
+  background: $bg-body;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  &-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+  }
+
+  &-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: $accent-hover;
+    }
+
+    p {
+      font-size: 14px;
+      color: $text-muted;
+      margin: 0 0 12px;
+      line-height: 1.5;
+      flex: 1;
+    }
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+  }
+}
+
+
+.repo-languages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.lang-tag {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.07);
+  color: $text-muted;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.repo-stats {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  color: $text-muted;
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+
+  &-info {
+    font-size: 14px;
+    color: $text-muted;
+    min-width: 100px;
+    text-align: center;
+  }
+
+  button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+

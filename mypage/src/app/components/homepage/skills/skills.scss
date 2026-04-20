@@ -1,0 +1,60 @@
+@use 'Pcolors' as *;
+@use 'Pbreakpoints' as *;
+
+.skills {
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+
+  @media (max-width: $tablet) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: $phone) {
+    grid-template-columns: 1fr;
+  }
+
+
+  &-content {
+    background: #ffffff06;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    @media (max-width: $phone) {
+      padding: 18px 14px;
+    }
+
+    &:last-child:nth-child(odd) {
+      @media (max-width: $tablet) {
+        grid-column: 1 / -1;
+        margin: 10px auto;
+        min-width: 40%;
+      }
+
+      @media (max-width: $phone) {
+        grid-column: 1 / 2;
+        margin: 0;
+      }
+    }
+
+    >h1 {
+      font-size: 23px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: $text-muted;
+      border-bottom: 1px solid $border-light;
+      padding-bottom: 10px;
+
+      @media (max-width: $phone) {
+        font-size: 19px;
+      }
+    }
+
+  }
+}

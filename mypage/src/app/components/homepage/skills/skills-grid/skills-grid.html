@@ -1,0 +1,12 @@
+@for (group of groups; track group.groupName) {
+<div class="skills-group">
+  @if (group.groupName) {
+  <h2>{{ group.groupName }}</h2>
+  }
+  <div class="skills-grid">
+    @for (item of group.items; track item.name) {
+    <skill-item [basePath]="group.basePath" [fileName]="item.fileName" [name]="item.name" />
+    }
+  </div>
+</div>
+}

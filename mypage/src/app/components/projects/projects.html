@@ -1,0 +1,79 @@
+<div class="body">
+  <section id="Projects" class="hero">
+    <div class="hero-content">
+      <h1>Projects</h1>
+      <p>A full list of my open source work</p>
+
+      @if (loading()) {
+        <div class="loading">
+          <span class="loading-dot"></span>
+          <span class="loading-dot"></span>
+          <span class="loading-dot"></span>
+        </div>
+      } @else if (error()) {
+        <div class="repo-error">
+          <p>Failed to load projects, please try again.</p>
+          <button class="secondary-btn" (click)="loadRepos()">Try Again</button>
+        </div>
+      } @else {
+        <div class="repo-grid">
+          @for (repo of repos(); track repo.id) {
+            <div class="repo-card">
+              <img
+                [src]="'https://opengraph.githubassets.com/1/' + repo.full_name"
+                [alt]="repo.name"
+                class="repo-card-image"
+              />
+              <div class="repo-card-body">
+                <h3>{{ repo.name }}</h3>
+                <p>{{ repo.description || 'No description provided' }}</p>
+                <div class="repo-languages">
+                  @for (lang of repo.languages; track lang) {
+                    <span class="lang-tag">{{ lang }}</span>
+                  }
+                </div>
+                <div class="repo-card-footer">
+                  <div class="repo-stats">
+                    <span class="repo-stars">
+                      <lucide-icon [img]="Star" [size]="14"></lucide-icon>
+                      {{ repo.stargazers_count }}
+                    </span>
+                    <span class="repo-issues">
+                      <lucide-icon [img]="Bug" [size]="14"></lucide-icon>
+                      {{ repo.open_issues_count }} issues
+                    </span>
+                  </div>
+                  <a [href]="repo.html_url" target="_blank" rel="noopener noreferrer" class="primary-btn">
+                    View Code
+                  </a>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+
+        @if (meta()) {
+          <div class="pagination">
+            <button
+              class="secondary-btn"
+              (click)="prevPage()"
+              [disabled]="currentPage() === 1"
+            >
+              ← Prev
+            </button>
+            <span class="pagination-info">
+              Page {{ currentPage() }} of {{ totalPages() }}
+            </span>
+            <button
+              class="secondary-btn"
+              (click)="nextPage()"
+              [disabled]="!meta()?.has_more"
+            >
+              Next →
+            </button>
+          </div>
+        }
+      }
+    </div>
+  </section>
+</div>

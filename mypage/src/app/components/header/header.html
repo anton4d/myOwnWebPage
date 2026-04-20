@@ -1,0 +1,34 @@
+<header class="header">
+
+
+  <a class="logo" routerLink="" (click)="closeMenu()">
+    Anton Lucas Schou Christensen
+  </a>
+
+  @if(!isWide()){
+  <button class="menu-toggle" (click)="toggleMenu()">
+    ☰
+  </button>
+  }
+
+  @if(menuOpen() || isWide()) {
+  <div class="right">
+    <nav class="nav">
+      <a routerLink="" (click)="closeMenu()" >Blogposts</a>
+      <a routerLink="/projects"(click)="closeMenu()" >Projects</a>
+      <a routerLink="/about"(click)="closeMenu()" >About</a>
+      <a routerLink="/contact"(click)="closeMenu()" >Contact</a>
+    </nav>
+
+    <div class="social">
+      <a class="social-btn" href="https://github.com/anton4d" target="_blank">
+        <lucide-angular [img]="githubIcon"></lucide-angular>
+      </a>
+      <a class="social-btn" href="https://www.linkedin.com/in/anton-l-s-christensen/" target="_blank">
+        <lucide-angular [img]="linkedinIcon"></lucide-angular>
+      </a>
+    </div>
+  </div>
+}
+
+</header>

@@ -1,0 +1,112 @@
+<div class="body">
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Hello, I'm Anton Christensen</h1>
+      <p>An upcoming backend developer.</p>
+      <p>This website will serve as a digital resume and portfolio.</p>
+    </div>
+  </section>
+  <!--About Me Section-->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>A Bit About Me</h1>
+      <p>
+        I Have Finished a master's in software engineering and can now call myself a Civil Engineer of Software.
+      </p>
+      <h2>Professional side</h2>
+      <p>I love a good challenge, and I enjoy creating software. Currently, I have limited experience outside of my own
+        projects and the university. But as seen down in <a (click)="scrollToSection('Technologies')"> Technologies
+          section</a>
+        I have worked on a lot of different technologies, but I am most versed in Python and Java. With this current
+        project and my project with Obsidian, my knowledge of CSS, TypeScript, and JavaScript strengthens.
+      </p>
+      <p>
+        My main motivation for becoming a developer is that I fell in love with the art of creating. I loved woodworking
+        and painting, but both of these endeavors were not as fruitful as my time at the tech university(HTX), where I
+        learned about simple Arduino code.
+        Currently, my main motivation is getting better at this craft, hopefully in a company that produces products
+        that
+        help people and no Enshittification.
+      </p>
+      <h2>Personal Side</h2>
+      <p>
+        I am a man with way too many hobbies, but that is fun for the soul. My main hobbies are:
+      </p>
+      <ul class="hobbies-list">
+        <li>Board Gaming</li>
+        <li>Reading</li>
+        <li>TTRPG / D&D</li>
+        <li>Video Games</li>
+      </ul>
+      <p>
+        So what does this give me? I am very good under pressure since I am good at inventing a story as I go, with my
+        experience in TTRPGs. I am a people person, based on both my board gaming and TTRPG; lastly, my interface skills
+        have been developed by looking at a lot of in-game screens.
+      </p>
+    </div>
+  </section>
+
+  <!-- Technologies -->
+  <section id="Technologies" class="hero">
+    <div class="hero-content">
+      <h1>Technologies I Have Worked With</h1>
+      <p>Most of these technologies I have gained experience with through self-learning and my studies at SDU Odense.
+      </p>
+      <Portfolio-skills/>
+      
+    </div>
+  </section>
+  <!-- end technologies -->
+
+  <section id="Projects" class="hero">
+    <div class="hero-content">
+      <h1>Projects</h1>
+      <p>Backend Developer</p>
+      @if (loading()) {
+      <div class="loading">
+        <span class="loading-dot"></span>
+        <span class="loading-dot"></span>
+        <span class="loading-dot"></span>
+      </div>
+      } @else if (error()) {
+      <div class="repo-error">
+        <p>Failed to load projects, please try again.</p>
+        <button class="secondary-btn" (click)="loadRepos()">Try Again</button>
+      </div>
+      } @else {
+      <div class="repo-grid">
+        @for (repo of repos(); track repo.id) {
+        <div class="repo-card">
+          <img [src]="'https://opengraph.githubassets.com/1/' + repo.full_name" [alt]="repo.name"
+            class="repo-card-image" />
+          <div class="repo-card-body">
+            <h3>{{ repo.name }}</h3>
+            <p>{{ repo.description || 'No description provided' }}</p>
+            <div class="repo-languages">
+              @for (lang of repo.languages; track lang) {
+              <span class="lang-tag">{{ lang }}</span>
+              }
+            </div>
+            <div class="repo-card-footer">
+              <div class="repo-stats">
+                <span class="repo-stars">
+                  <lucide-icon [img]="Star" [size]="14"></lucide-icon>
+                  {{ repo.stargazers_count }}
+                </span>
+                <span class="repo-issues">
+                  <lucide-icon [img]="Bug" [size]="14"></lucide-icon>
+                  {{ repo.open_issues_count }} issues
+                </span>
+              </div>
+              <a [href]="repo.html_url" target="_blank" rel="noopener noreferrer" class="primary-btn">
+                View Code
+              </a>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+      }
+    </div>
+  </section>
+</div>
